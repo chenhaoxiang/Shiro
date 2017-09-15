@@ -152,7 +152,7 @@ public class JdbcRealmTest {
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/Shiro/tree/master/20170908/code/Shiro2' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
 
 
