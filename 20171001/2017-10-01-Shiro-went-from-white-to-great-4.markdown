@@ -15,7 +15,11 @@ description: 本节讲集成Web(没有通过数据库-通过text) 实现登录�
 <!-- more -->
 ----------
 
-```ini shiro.ini文件配置
+本节讲集成Web(没有通过数据库-通过text)  
+实现登录经过Shiro验证后跳转另外的页面，以及没验证通过进行的权限拦截   
+
+shiro.ini文件配置
+```java
 [main]
 authc.loginUrl=/login
 ;这里的配置为authc验证没通过请求的路径  loginUrl为一个属性名 org.apache.shiro.web.filter.authc.FormAuthenticationFilter类中
@@ -46,7 +50,7 @@ teacher=student:*
 ```
 
 ShiroUtils工具类: 
-```java ShiroUtils工具类
+```java
 package cn.chenhaoxiang.common;
 
 import org.apache.shiro.SecurityUtils;
@@ -92,8 +96,8 @@ public class ShiroUtils {
     }
 }
 ```
-
-```xml pom.xml配置
+pom.xml配置
+```xml
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" 
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -155,7 +159,7 @@ public class ShiroUtils {
 ```
 
 web.xml配置
-```xml web.xml配置
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -206,8 +210,8 @@ web.xml配置
 
 官网学习文档链接:[http://shiro.apache.org/web.html#Web-Shiro1.2andlater](http://shiro.apache.org/web.html#Web-Shiro1.2andlater)  
 
-#Url匹配方式(urls) 
-```
+# Url匹配方式(urls) 
+```java
 ? 匹配一个字符，例如 /admin? 可以匹配/admin1;/admin2等等，但是不能匹配/admin12;/admin,也就是不能匹配多个字符或者多路径，而且必须匹配一个字符 
 * 匹配零个或者一个或者多个字符，例如 /admin* 可以匹配 /admin;/admin1;/admin12;等等但是不能匹配/admin/a，也就是不能匹配多路径,只能在一个路径下  
 ** 匹配零个或者多个路径,例如 /admin/**,可以匹配/admin;/admin/a;/admin/a/b，不能匹配/admin12,因为是匹配多路径的，而不是多字符  
@@ -216,17 +220,17 @@ web.xml配置
 可以自己同时结合几个匹配方式来测试，例如/admin*/**  
 注意: ```/admin**```和```/admin/**```是一样的  
 
-#Shiro标签
+# Shiro标签
 结合实例来理解shiro标签  
 
-##shiro:hasRole
+## shiro:hasRole
 注意jsp先引入:  
-```jsp
+```java
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 ```
 
 jsp:
-```jsp
+```java
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html>
@@ -245,9 +249,9 @@ jsp:
 登录admin角色的用户  
 ![](https://i.imgur.com/3Q9hzqK.png)  
 
-##shiro:hasPermission标签  
+## shiro:hasPermission标签  
 
-```jsp
+```java
 <shiro:hasPermission name="student:create">
 欢迎有student:create权限的用户
 </shiro:hasPermission>
@@ -255,15 +259,15 @@ jsp:
 如果拥有student:create权限，就会显示标签内文字   
 ![](https://i.imgur.com/CG4BfL9.png)  
 
-##shiro:principal标签 
+## shiro:principal标签 
 显示用户信息的标签   
-```jsp
+```java
 <shiro:principal></shiro:principal>
 ```
 ![](https://i.imgur.com/cZYlv5p.png)  
 
 
-#Shiro会话机制
+# Shiro会话机制
 Shiro有自己的一套会话机制，不多讲，其实正常开发的话，一般都是用默认的  
 ```java
 //获取Session  Shiro管理的Session
@@ -276,10 +280,11 @@ session.setAttribute("info","session数据");
 ```  
 要深入研究的话，可以去官网看看哦: http://shiro.apache.org/web.html#Web-sessionManagement  
 
-#源代码下载地址：
+# 源代码下载地址：
 <blockquote cite='陈浩翔'>
 GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/Shiro/tree/master/20171001/code/ShiroWeb' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
+
 
 
 本文章由<a href="http://chenhaoxiang.cn/">[谙忆]</a>编写， 所有权利保留。 
