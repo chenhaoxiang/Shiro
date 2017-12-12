@@ -200,7 +200,7 @@ public class MyRealm extends AuthorizingRealm{
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/Shiro/tree/master/20171212/code/ShiroWeb' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
 
 
