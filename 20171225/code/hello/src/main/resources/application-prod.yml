@@ -1,0 +1,11 @@
+server:
+  port: 8081
+#  :号后面必须有空格
+  context-path: /hello
+name: 发布环境
+age: 20
+info: "name:${name},age:${age}"
+people:
+  name: prod
+  age: 20
+  address: 长沙

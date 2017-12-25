@@ -1,0 +1,4 @@
+#第一种配置方式
+#这种配置方式每个属性名都必须写完整
+server.port=8081
+server.context-path=/hello
